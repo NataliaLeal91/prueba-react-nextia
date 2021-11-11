@@ -15,7 +15,7 @@ class LaunchScreen extends React.Component {
       if (this.props.isSignedIn) {
         
       } else {
-        history.push('/login');
+        this.props.history.push('/login');
       }
     }, 1000);
 
