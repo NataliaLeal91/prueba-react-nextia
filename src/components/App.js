@@ -1,22 +1,28 @@
 import React from 'react';
 
 import {
-  BrowserRouter,
-  Routes,
-  Route
+   BrowserRouter as Router,
+  Switch,
+  Route,
 } from 'react-router-dom';
+
+import { ConnectedRouter } from 'connected-react-router'
 
 import Login from './Login';
 import LaunchScreen from './LaunchScreen';
+import history from '../history';
 
-const App = () => {
+const App = (props) => {
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<LaunchScreen />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
-    </BrowserRouter>
+    <ConnectedRouter history={history}>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={LaunchScreen} />
+          <Route exact path="/login" component={Login} />
+        </Switch>
+      </Router>
+    </ConnectedRouter>
   );
 };
 

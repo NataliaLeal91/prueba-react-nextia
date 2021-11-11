@@ -4,13 +4,11 @@ import { signIn } from '../actions';
 
 class Login extends React.Component {
 
-  onSubmit = (formValues) => {
+  onSubmit = () => {
     this.props.signIn();
   };
 
   render() {
-    console.log(this.props);
-
     return (
       <div>
         <h3>Create a Stream</h3>
