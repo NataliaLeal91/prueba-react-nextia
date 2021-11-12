@@ -10,6 +10,8 @@ import { ConnectedRouter } from 'connected-react-router'
 
 import Login from './Login';
 import LaunchScreen from './LaunchScreen';
+import Benevits from '../components/Benevits';
+
 import history from '../history';
 
 const App = (props) => {
@@ -20,6 +22,7 @@ const App = (props) => {
         <Switch>
           <Route exact path="/" component={LaunchScreen} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/benevits" component={Benevits} />
         </Switch>
       </Router>
     </ConnectedRouter>

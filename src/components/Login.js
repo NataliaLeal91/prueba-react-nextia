@@ -8,10 +8,23 @@ class Login extends React.Component {
     this.props.signIn();
   };
 
+  componentDidMount() {
+    if (this.props.isSignedIn) {
+      this.props.history.push('/benevits');
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.isSignedIn && (this.props.isSignedIn !== prevProps.isSignedIn)) {
+      this.props.history.push('/benevits');
+    }
+  }
+
   render() {
+    console.log(this.props.isSignedIn);
     return (
       <div>
-        <h3>Create a Stream</h3>
+        <h3>Login</h3>
         <button onClick={this.onSubmit}>login</button>
       </div>
     );
@@ -19,10 +32,9 @@ class Login extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     isSignedIn: state.auth.isSignedIn,
-    userId: state.auth,
+    user: state.auth,
     isApiError: state.apiError.isError,
     apiError: state.apiError.error
   };
