@@ -2,23 +2,21 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { signIn } from '../actions';
 
-import history from '../history'
 
 class LaunchScreen extends React.Component {
-  constructor(props){  
-    super(props);  
+  constructor(props) {
+    super(props);
 
   }  
 
   componentDidMount() {
     setTimeout(() => {
       if (this.props.isSignedIn) {
-        
+        this.props.history.push('/benevits');
       } else {
         this.props.history.push('/login');
       }
     }, 1000);
-
   }
 
   render() {
