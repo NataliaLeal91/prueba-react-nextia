@@ -65,3 +65,8 @@ export const fetchBenevits = (token) => async (dispatch) => {
     dispatch({ type: NEXTIA_API_ERRORS, payload: err.response.data.error });
   });
 };
+
+
+export const closeErrorAlert = () => async (dispatch) => {
+  dispatch({ type: NEXTIA_API_SUCCESS, payload: null });
+}

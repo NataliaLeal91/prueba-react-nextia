@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { signIn } from '../actions';
+
+
+import ErrorAlert from '../components/ErrorAlert';
 
 class Login extends React.Component {
   constructor(props) {
@@ -56,7 +59,7 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         <div className="red-color">
           <div className="flex items-center justify-center h-40 md:h-80 object-center ">
             <div className="w-1/2 sm:w-1/3 md:w-1/3 lg:w-1/3 xl:w-1/3">
@@ -93,7 +96,8 @@ class Login extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+        <ErrorAlert errorMessage={"Usuario y/o contraseña incorrectos. Favor de verificar su información."} />
+      </Fragment>
     );
   }
 }

@@ -40,16 +40,16 @@ class Benevits extends React.Component {
 
 
 
-              <div class="w-full navbar red-color">
-                <div class="flex-none lg:hidden">
-                  <label for="my-drawer-3" class="btn btn-square btn-ghost">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-6 h-6 stroke-current">
+              <div className="w-full navbar red-color">
+                <div className="flex-none lg:hidden">
+                  <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                   </label>
                 </div> 
 
-                <div class="flex-none hidden lg:block">
+                <div className="flex-none hidden lg:block">
                   <ul>
                     <li>
                       <label htmlFor="my-drawer" className="cursor-pointer" >
@@ -61,7 +61,7 @@ class Benevits extends React.Component {
                   </ul>
                 </div>
 
-                <div class="flex-1 px-2 mx-2">
+                <div className="flex-1 px-2 mx-2">
                   <span>
                     <img className="h-16" src={'logo.png'} />
                   </span>
@@ -141,12 +141,16 @@ class Benevits extends React.Component {
                 </li>
                 <li style={{position: 'absolute', bottom: 0, width: '100%'}}>
                   <button className="h-20 text-white text-left cursor-pointer font-bold" onClick={() => {
-                    this.props.signOut()
+                    this.props.signOut();
                   }}>Cerrar sesión</button>
                 </li>
               </ul>
             </div>
           </div>
+
+
+
+
         </Fragment>
       );
     }
