@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
+import './index.css';
 
 import { Provider } from 'react-redux';
 import { applyMiddleware, compose, createStore } from 'redux'
@@ -9,7 +10,6 @@ import { routerMiddleware } from 'connected-react-router'
 
 import reducers from './reducers';
 import history from './history';
-
 
 const store = createStore(reducers(history),
   compose(

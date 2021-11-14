@@ -9,10 +9,10 @@ import {
 
 import nextia from '../apis/nextia';
 
-export const signIn = () => async (dispatch) => {
+export const signIn = (email, password) => async (dispatch) => {
  
   await nextia.post('/login', {
-    user: { email: "prueba@nextia.mx", password: 'PruebaNextia2021' }
+    user: { email, password }
   }).then((response) => {
 
     dispatch({ type: SIGN_IN, payload: {
@@ -65,3 +65,8 @@ export const fetchBenevits = (token) => async (dispatch) => {
     dispatch({ type: NEXTIA_API_ERRORS, payload: err.response.data.error });
   });
 };
+
+
+export const closeErrorAlert = () => async (dispatch) => {
+  dispatch({ type: NEXTIA_API_SUCCESS, payload: null });
+}
