@@ -4,11 +4,19 @@ import {
   fetchWallets, fetchBenevits, signOut
 } from '../actions';
 
+import ConfirmAlert from '../components/ConfirmAlert'
+
 class Benevits extends React.Component {
   constructor(props){  
     super(props);  
 
-  }  
+    this.state = {
+      showConfirmAlert: false
+    }
+
+
+    this.toggleShowConfirmAlert = this.toggleShowConfirmAlert.bind(this); 
+  }
 
   componentDidMount() {
     if (this.props.isSignedIn) {
@@ -25,6 +33,10 @@ class Benevits extends React.Component {
     }
   }
 
+  toggleShowConfirmAlert(showConfirmAlert) {
+    this.setState({ showConfirmAlert });
+  }
+
   render() {
 
     // if(this.state.loading || !this.state || !this.state.data) {
@@ -37,8 +49,6 @@ class Benevits extends React.Component {
           <div className="shadow bg-base-200 drawer">
             <input id="my-drawer" type="checkbox" className="drawer-toggle" /> 
             <div className="flex flex-col items-center justify-center drawer-content gray-color" style={{maxHeight: 'none'}}>
-
-
 
               <div className="w-full navbar red-color">
                 <div className="flex-none lg:hidden">
@@ -68,10 +78,6 @@ class Benevits extends React.Component {
                 </div> 
               </div>
  
-
-
-
-
               {this.props.wallets ?
                 this.props.wallets.wallets.map((wallet) => {
 
@@ -125,7 +131,6 @@ class Benevits extends React.Component {
                   </div>
                 })
               : null}
-
             </div> 
 
             <div className="drawer-side">
@@ -141,16 +146,17 @@ class Benevits extends React.Component {
                 </li>
                 <li style={{position: 'absolute', bottom: 0, width: '100%'}}>
                   <button className="h-20 text-white text-left cursor-pointer font-bold" onClick={() => {
-                    this.props.signOut();
+                    // this.props.signOut();
+                    this.setState({ showConfirmAlert: true })
                   }}>Cerrar sesión</button>
                 </li>
               </ul>
             </div>
           </div>
-
-
-
-
+          <ConfirmAlert
+            message={'¿Esta seguro que desea cerrar su sesión?'}
+            toggleShowConfirmAlert={this.toggleShowConfirmAlert}
+            showConfirmAlert={this.state.showConfirmAlert} />
         </Fragment>
       );
     }
