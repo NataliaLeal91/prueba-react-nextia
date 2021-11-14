@@ -73,3 +73,7 @@
   background-color: black;
   margin: 6px 0;
 }
+
+.bg-login-curved {
+  clip-path: ellipse(231% 100% at -82.13% 0%);
+}
