@@ -66,3 +66,10 @@
 .gray-color {
   background-color: #9F9F9F;
 }
+
+.menu-icon{
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  margin: 6px 0;
+}
