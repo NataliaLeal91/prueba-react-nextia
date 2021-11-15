@@ -9,8 +9,8 @@ class Login extends React.Component {
     super(props);
 
     this.state = {
-      username: 'prueba@nextia.mx',
-      password: 'PruebaNextia2021',
+      username: '',
+      password: '',
       completedForm: false
     };
     
