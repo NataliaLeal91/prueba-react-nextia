@@ -175,7 +175,7 @@ class Benevits extends React.Component {
             {unlockedBenevits ? 
               unlockedBenevits.map((benevit) => {
                 return <SwiperSlide>
-                  <div className="rounded bg-white w-full">
+                  <div className="rounded bg-white w-full h-80">
                     <div className="flex h-20 rounded-t-lg " style={{ backgroundColor: benevit.primary_color }}>
                       <img className="w-full" src={benevit.ally.mini_logo_full_path}/>
                     </div>
@@ -192,7 +192,8 @@ class Benevits extends React.Component {
             : null}
             {lockedBenevits ?
               lockedBenevits.map((benevit) => {
-                return <SwiperSlide><div className="p-2 rounded bg-white w-full">
+                return <SwiperSlide>
+                  <div className="p-2 rounded bg-white w-full h-80">
                     <div className="flex h-52">
                       <img className="w-full m-auto" src={benevit.vector_full_path} />
                     </div>
@@ -203,7 +204,8 @@ class Benevits extends React.Component {
                         Lo quiero
                       </button>
                     </div>
-                </div></SwiperSlide>
+                  </div>
+                </SwiperSlide>
               })
             :null}
           </Swiper>
@@ -215,7 +217,7 @@ class Benevits extends React.Component {
   render() {
     return (
       <Fragment>
-        <div className="shadow bg-base-200 drawer">
+        <div className="gray-color bg-base-200 drawer pb-8">
           <input id="my-drawer" type="checkbox" className="drawer-toggle" /> 
           <div className="flex flex-col items-center justify-center drawer-content gray-color" style={{maxHeight: 'none'}}>
             {this.menuHeader()}
