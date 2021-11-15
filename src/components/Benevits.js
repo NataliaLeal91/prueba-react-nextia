@@ -6,6 +6,15 @@ import {
 
 import ConfirmAlert from '../components/ConfirmAlert'
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+
+import 'swiper/swiper-bundle.min.css'
+import 'swiper/swiper.min.css'
+
+
+
+
 class Benevits extends React.Component {
   constructor(props){  
     super(props);  
@@ -66,10 +75,6 @@ class Benevits extends React.Component {
       </div> 
     </div>
   }
-
-
-
-
 
   sideDrawer() {
     return  <div className="drawer-side">
@@ -140,27 +145,55 @@ class Benevits extends React.Component {
         
         return <Fragment>
           <h1 className="font-bold py-4">{wallet.name}</h1>
-          <div className="grid justify-items-center grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2">
+          <Swiper slidesPerView={2}
+            spaceBetween={10}
+            breakpoints={{
+              640: {
+                width: 640,
+                slidesPerView: 2,
+              },
+              768: {
+                width: 768,
+                slidesPerView: 4,
+              },
+              1024: {
+                width: 1024,
+                slidesPerView: 6,
+              },
+
+              1280: {
+                width: 1280,
+                slidesPerView: 6,
+              },
+
+              1536: {
+                width: 1536,
+                slidesPerView: 6,
+              }
+            }}
+          >
             {unlockedBenevits ? 
               unlockedBenevits.map((benevit) => {
-                return <div className="rounded bg-white w-full">
-                  <div className="flex h-20 rounded-t-lg " style={{ backgroundColor: benevit.primary_color }}>
-                    <img className="w-full" src={benevit.ally.mini_logo_full_path}/>
-                  </div>
-                  <div className="flex h-52 p-2">
-                    <div className="w-full">
-                      <p className="font-bold">{benevit.ally.name}</p>
-                      <p>{benevit.ally.description}</p>
-                      <p className="text-sm mt-3">{benevit.title}</p>
+                return <SwiperSlide>
+                  <div className="rounded bg-white w-full h-80">
+                    <div className="flex h-20 rounded-t-lg " style={{ backgroundColor: benevit.primary_color }}>
+                      <img className="w-full" src={benevit.ally.mini_logo_full_path}/>
+                    </div>
+                    <div className="flex h-52 p-2">
+                      <div className="w-full">
+                        <p className="font-bold">{benevit.ally.name}</p>
+                        <p>{benevit.ally.description}</p>
+                        <p className="text-sm mt-3">{benevit.title}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </SwiperSlide>
               })
             : null}
-          
             {lockedBenevits ?
               lockedBenevits.map((benevit) => {
-                return <div className="p-2 rounded bg-white w-full">
+                return <SwiperSlide>
+                  <div className="p-2 rounded bg-white w-full h-80">
                     <div className="flex h-52">
                       <img className="w-full m-auto" src={benevit.vector_full_path} />
                     </div>
@@ -171,10 +204,11 @@ class Benevits extends React.Component {
                         Lo quiero
                       </button>
                     </div>
-                </div>
+                  </div>
+                </SwiperSlide>
               })
             :null}
-          </div>
+          </Swiper>
         </Fragment>
       })
     : null
@@ -183,7 +217,7 @@ class Benevits extends React.Component {
   render() {
     return (
       <Fragment>
-        <div className="shadow bg-base-200 drawer">
+        <div className="gray-color bg-base-200 drawer pb-8">
           <input id="my-drawer" type="checkbox" className="drawer-toggle" /> 
           <div className="flex flex-col items-center justify-center drawer-content gray-color" style={{maxHeight: 'none'}}>
             {this.menuHeader()}
